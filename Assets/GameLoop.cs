@@ -6,8 +6,8 @@ using System.Collections;
 
 /// <summary>
 /// Manage Game life cycle : menu/start/gameover 
-/// Player wins if the PlayerWinScore is reached before the Timer.TimeDuration.
-/// Game over is triggered if player wins or if Player.Damage.health is 0 or if Timer.TimeDuration expired, 
+/// Player wins if the PlayerWinScore is reached.
+/// Game over is triggered if player wins or if Player.Damage.health is 0 
 /// Player.Damage.Health and Score are managed by other game objects in the scene
 /// </summary>
 public class GameLoop : MonoBehaviour
@@ -100,7 +100,7 @@ public class GameLoop : MonoBehaviour
         State = GameState.Gameover;
         if (PlayerWin())
         {
-            float bonus = Timer.TimeRemaining + playerDamageable.Health;
+            float bonus = Timer.TimeCount + playerDamageable.Health;
             DisplayMessage($"You Win\nScore {PlayerCurrentScore:0} - Bonus {bonus:0}");
         }
         else
@@ -113,7 +113,7 @@ public class GameLoop : MonoBehaviour
             else
             {
                 // Player died
-                float timePassed = Timer.Duration - Timer.TimeRemaining;
+                float timePassed = Timer.Duration - Timer.TimeCount;
                 DisplayMessage($"Game Over\nDied in {timePassed:0}s");
             }
         }

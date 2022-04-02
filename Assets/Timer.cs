@@ -2,10 +2,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+// can be a timer or a countdown 
 public class Timer : MonoBehaviour
 {
-    [Tooltip("Game ends after this many seconds have elapsed")]
-    public float Duration = 60;
+    [Tooltip("Set duration greater than 0 for a count down")]
+    public float Duration = 0;
     // When the timer started
     public float TimerStartTime { get; protected set; }
 
@@ -26,8 +27,9 @@ public class Timer : MonoBehaviour
 
     [Tooltip("Unity Event called on time out")]
     public UnityEvent OnTimeOut;
+    protected bool countDown = false;
 
-    public float TimeRemaining { get; protected set; }
+    public float TimeCount { get; protected set; }
 
 
     void OnEnable()
@@ -35,9 +37,16 @@ public class Timer : MonoBehaviour
         ResumeTimer();
     }
 
-    public void Start() // called after OnEnable at scene start
+    public void Start()
     {
-        TimeRemaining = Duration;
+        StartTimer();
+    }
+
+    public void StartTimer() // called after OnEnable at scene start
+    {
+        if(Duration > 0)
+            countDown = true;
+        TimeCount = Duration;
         State = TimerState.Stopped;
     }
 
@@ -49,7 +58,7 @@ public class Timer : MonoBehaviour
     public void RestartTimer()
     {
         State = TimerState.Started;
-        TimeRemaining = Duration;
+        TimeCount = Duration;
     }
 
     public void StopTimer()
@@ -66,10 +75,13 @@ public class Timer : MonoBehaviour
     {
         if (State == TimerState.Started)
         {
-            TimeRemaining -= Time.deltaTime; // no change if state is Stopped or Ended
+            if(countDown)
+                TimeCount -= Time.deltaTime; // no change if state is Stopped or Ended
+            else
+                TimeCount += Time.deltaTime;
         }
 
-        if (TimeRemaining <= 0f && State != TimerState.Ended)
+        if (TimeCount <= 0f && State != TimerState.Ended && countDown)
         {
             OnTimeOut.Invoke();
             State = TimerState.Ended;
@@ -77,12 +89,10 @@ public class Timer : MonoBehaviour
 
         if (TimerText)
         {
-            if (TimeRemaining > 0f)
-                TimerText.text = TimeRemaining.ToString("00");
-            else
-            {
+            if (TimeCount < 0f && countDown)
                 TimerText.text = "Time Out";
-            }
+            else
+                TimerText.text = TimeCount.ToString("00");
         }
     }
 }

@@ -5,8 +5,7 @@ using UnityEngine;
 // Resize the game object of this component
 public class Resizer : MonoBehaviour
 {
-    [SerializeField]
-    protected GameObject resizedObject;
+    public GameObject ResizedObject;
 
     public float ResizeSpeed = 1f;
 
@@ -14,17 +13,17 @@ public class Resizer : MonoBehaviour
 
     private void Start()
     {
-        if (resizedObject == null)
+        if (ResizedObject == null)
         {
-            resizedObject = gameObject;
+            ResizedObject = gameObject;
         }
     }
 
     // Resize the game object of this component (clamped scale to 0) 
     void Update()
     {
-        if(gameObject.transform.localScale.x > 0 && gameObject.transform.localScale.y > 0 && gameObject.transform.localScale.z >0)
-            gameObject.transform.localScale += ResizeDelta * ResizeSpeed * Time.deltaTime;
+        if(ResizedObject.transform.localScale.x > 0 && ResizedObject.transform.localScale.y > 0 && ResizedObject.transform.localScale.z >0)
+            ResizedObject.transform.localScale += ResizeDelta * ResizeSpeed * Time.deltaTime;
     }
 
 }

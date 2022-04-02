@@ -16,11 +16,12 @@ public class IcefiedManager : MonoBehaviour
     void Start()
     {
         // randomize size
-        gameObject.transform.localScale += new Vector3(Random.Range(1 - sizeEntropy, 1 + sizeEntropy), 1, Random.Range(1 - sizeEntropy, 1 + sizeEntropy));
+        gameObject.transform.localScale += new Vector3(Random.Range(1 - (sizeEntropy*2), 1 - sizeEntropy), 1, Random.Range(1 - (sizeEntropy*2), 1 + sizeEntropy));
 
         // randomize melt
         Resizer resizer = gameObject.GetComponentInChildren<Resizer>();
-        resizer.ResizeDelta = new Vector3(Random.Range(1 - resizeEntropy, 1 + resizeEntropy), 1, Random.Range(1 - resizeEntropy, 1 + resizeEntropy));
+        resizer.ResizedObject = this.gameObject;
+        resizer.ResizeDelta = new Vector3(Random.Range(1 - (resizeEntropy*2), 1 + resizeEntropy), 1, Random.Range(1 - (resizeEntropy*2), 1 + resizeEntropy));
         resizer.ResizeSpeed = Random.Range(1 - resizeEntropy, 1 + resizeEntropy);
 
         // TODO: start tangle
@@ -36,5 +37,10 @@ public class IcefiedManager : MonoBehaviour
         // TODO: tangle from wave
         // TODO: tangle from player
         // TODO: move
+
+        if(gameObject.transform.localScale.x <= 0.01f)
+        {
+            Destroy(gameObject);
+        }
     }
 }
