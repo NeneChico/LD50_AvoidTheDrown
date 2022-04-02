@@ -147,8 +147,13 @@ Thumbs.db
 *.lock
 *.zip
 
+Assets/_TerrainAutoUpgrade
+
 # == third party packages == #
 # to add with Unity Package Manager
 
-Assets/_TerrainAutoUpgrade
 Assets/AQUAS-Lite
+Assets/Published/SUPER Character Controller/
+Assets/_TerrainAutoUpgrade.meta
+Assets/Published.meta
+Assets/Published/SUPER Character Controller.meta

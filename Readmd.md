@@ -20,8 +20,6 @@ the required assets are listed at the end of the .gitignore file
 
 Some third parties where used or stron gmly inspired
 
-- code extracts
-    - CameraFollow from Unity ML-Agents examples
-    - PlayerController from Unity CharacterController example 
 - Luckiest Guy font from Google : https://fonts.google.com/specimen/Luckiest+Guy
 - AQUAS Lite from Dogmatic : https://assetstore.unity.com/packages/vfx/shaders/aquas-lite-built-in-render-pipeline-53519
+- Super Character Controller from Aedan Graves : https://assetstore.unity.com/packages/tools/game-toolkits/super-character-controller-135316#content
