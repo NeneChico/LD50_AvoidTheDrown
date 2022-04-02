@@ -8,7 +8,6 @@ using UnityEngine;
 //
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
     private CharacterController controller;
 
     [SerializeField]
@@ -40,6 +39,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Debug.Log("Move received : " + move);
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         if (move != Vector3.zero)
@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
             gameObject.transform.forward = move;
         }
 
-        // Changes the height position of the player..
         if (Input.GetButtonDown("Jump") && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);

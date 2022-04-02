@@ -2,26 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Resize the game object of this component (clamped scale to 0) 
+// Resize the game object of this component
 public class Resizer : MonoBehaviour
 {
     [SerializeField]
-    protected float resizeSpeed = 1f;
+    protected GameObject resizedObject;
 
-    [SerializeField]
-    protected Vector3 resizeDelta;
+    public float ResizeSpeed = 1f;
 
+    public Vector3 ResizeDelta;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        if (resizedObject == null)
+        {
+            resizedObject = gameObject;
+        }
     }
 
     // Resize the game object of this component (clamped scale to 0) 
     void Update()
     {
         if(gameObject.transform.localScale.x > 0 && gameObject.transform.localScale.y > 0 && gameObject.transform.localScale.z >0)
-            gameObject.transform.localScale += resizeDelta * resizeSpeed * Time.deltaTime;
+            gameObject.transform.localScale += ResizeDelta * ResizeSpeed * Time.deltaTime;
     }
+
 }

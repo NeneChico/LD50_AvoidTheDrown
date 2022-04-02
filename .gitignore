@@ -150,6 +150,5 @@ Thumbs.db
 # == third party packages == #
 # to add with Unity Package Manager
 
-# Unmodified assets
-Assets/Feel/
-Assets/InfiniteRunnerEngine/
+Assets/_TerrainAutoUpgrade
+Assets/AQUAS-Lite
