@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4247cac6dbb455f80c71feddb61f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resizedObject: {fileID: 8981015412460723616}
+  ResizedObject: {fileID: 0}
   ResizeSpeed: 1
-  ResizeDelta: {x: 1, y: 0, z: 1}
+  ResizeDelta: {x: -1.05, y: 0, z: -1.05}
 --- !u!1 &8981015412460723616
 GameObject:
   m_ObjectHideFlags: 0

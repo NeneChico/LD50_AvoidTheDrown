@@ -6,23 +6,17 @@ public class IcefiedManager : MonoBehaviour
 {
 
     [SerializeField]
-    protected float sizeEntropy = 0.1f;
-
-    [SerializeField]
-    protected float resizeEntropy = 0.1f;
-
+    protected float entropy = 0.1f;
 
     // Start is called before the first frame update
     void Start()
     {
         // randomize size
-        gameObject.transform.localScale += new Vector3(Random.Range(1 - (sizeEntropy*2), 1 - sizeEntropy), 1, Random.Range(1 - (sizeEntropy*2), 1 + sizeEntropy));
+        gameObject.transform.localScale -= new Vector3(Random.Range(entropy, entropy*2), 0, Random.Range(entropy, entropy*2));
 
         // randomize melt
         Resizer resizer = gameObject.GetComponentInChildren<Resizer>();
         resizer.ResizedObject = this.gameObject;
-        resizer.ResizeDelta = new Vector3(Random.Range(1 - (resizeEntropy*2), 1 + resizeEntropy), 1, Random.Range(1 - (resizeEntropy*2), 1 + resizeEntropy));
-        resizer.ResizeSpeed = Random.Range(1 - resizeEntropy, 1 + resizeEntropy);
 
         // TODO: start tangle
 
