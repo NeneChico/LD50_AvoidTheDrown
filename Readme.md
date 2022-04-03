@@ -20,7 +20,7 @@ On standalone build:
 ![Screenshot](img/screenshot_0.2_gameover.png?raw=true "Gameover")
 
 
-See [Known issues]https://github.com/jpca/ld50_avoidinevitable/issues)
+See [Known issues](https://github.com/jpca/ld50_avoidinevitable/issues)
 
 # Instructions to build
 
