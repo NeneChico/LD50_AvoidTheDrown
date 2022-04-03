@@ -22,10 +22,17 @@ public class GameLoop : MonoBehaviour
 
     public Transform PlayerRestartLocation;
 
+    public AudioClip GameOverLostSound;
+
+    public AudioClip GameStartSound;
+
+    protected AudioSource audioSource;
+
+
     [Tooltip("Objects to active / disactivate at GameOver / Restart")]
     public List<GameObject> GameObjects = new List<GameObject>();
 
-    [Tooltip("Timer to use to end the game")]
+    [Tooltip("Timer used")]
     public Timer Timer;
 
     [Tooltip("Score to achieve for player to win")]
@@ -54,6 +61,7 @@ public class GameLoop : MonoBehaviour
     public void Start()
     {
         playerDamageable = Player.GetComponent<Damageable>();
+        audioSource = gameObject.GetComponent<AudioSource>();
         Menu();
     }
 
@@ -115,7 +123,11 @@ public class GameLoop : MonoBehaviour
         Resizer startRs = startIceField.GetComponentInChildren<Resizer>();
         startRs.enabled = true;
         startRs.ResetSize();
-       
+
+        // Play restart sound
+        if (audioSource && GameStartSound)
+            audioSource.PlayOneShot(GameStartSound);
+
     }
 
     public void Gameover()
@@ -137,6 +149,11 @@ public class GameLoop : MonoBehaviour
             {
                 // Player died
                 DisplayMessage($"Game Over\nDied in {Timer.TimeCount:0} seconds");
+
+                // Play lost sound
+                if (audioSource && GameOverLostSound)
+                    audioSource.PlayOneShot(GameOverLostSound);
+
             }
         }
         //StartCoroutine(LaunchMenuInSeconds(2));

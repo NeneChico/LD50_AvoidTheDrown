@@ -45,6 +45,7 @@ public class IcefiedManager : MonoBehaviour
     {
         // randomize size
         gameObject.transform.localScale -= new Vector3(Random.Range(entropy, entropy*2), 0, Random.Range(entropy, entropy*2));
+        gameObject.transform.Rotate(new Vector3(0, Random.Range(-entropy, entropy) * 360, 0));
 
         // randomize melt
         Resizer resizer = gameObject.GetComponentInChildren<Resizer>();
