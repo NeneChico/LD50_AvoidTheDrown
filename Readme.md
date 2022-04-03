@@ -36,12 +36,17 @@ On standalone build:
 
 Made with [Unity 2021.2](https://unity3d.com/fr/get-unity/download) and a few free assets (wich I can't include source code sorry)
 
-Some third parties code where used
+Some third parties code where used :
 
 - Super Character Controller from Aedan Graves : https://assetstore.unity.com/packages/tools/game-toolkits/super-character-controller-135316#content
 - AQUAS Lite from Dogmatic : https://assetstore.unity.com/packages/vfx/shaders/aquas-lite-built-in-render-pipeline-53519
 - Luckiest Guy font from Google : https://fonts.google.com/specimen/Luckiest+Guy
 - Camera controller derived from Unity ML-Agents examples : https://github.com/Unity-Technologies/ml-agents
+
+
+Some helping videos :
+
+- How to create low poly rocks in minute by CG Geek : https://www.youtube.com/watch?v=4EqLyGsu3AA
 
 I'll appreciate to know if you play this game or use the source code
 
