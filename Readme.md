@@ -1,29 +1,26 @@
-# Avoid Inevitable
+# Avoid The Inevitable Drown
 
 Small game released in 2 days for [Ludum Dare 50](https://ldjam.com/events/ludum-dare/50) game jam
 with the "avoid inevitable" theme and the "compo" rules constraints.
 
 # Instructions to play
 
-As a pinguin in an melting icefield you have to survive.
+As a pinguin (who don't how to swim!) is in a melting icefield, help him survive.
 
-Play with a with the keyboard
-with WSAD (or ZQSD) to move and spacebar to jump
+Use WSAD keys to move and the spacebar to jump
 
 On standalone build:
 - Escape key to Quit
-- P key to make a screenshot (pgn file generated on your "Avoid Inevitable_Data" folder from the game binary directory)
+- P key to make a screenshot (pgn file generated on your "Avoid the Drown_Data" folder from this game binary directory)
 
 # Screenshots
 
-## Screenshots of v0.1 Windows
-![Screenshot](img/screenshot_0.1_start.png?raw=true "Start")
-![Screenshot](img/screenshot_0.1_gameover.png?raw=true "Gameover")
+![Screenshot](img/screenshot_0.2_start.png?raw=true "Start")
 
-# Known issues
+![Screenshot](img/screenshot_0.2_gameover.png?raw=true "Gameover")
 
-- Character controls altered after playing a while for an unknown reason
-- WebGL build (wip) because displays a black texture instead of transparent waters
+
+See [Known issues]https://github.com/jpca/ld50_avoidinevitable/issues)
 
 # Instructions to build
 
@@ -34,9 +31,9 @@ On standalone build:
 
 # Credits
 
-Made with [Unity 2021.2](https://unity3d.com/fr/get-unity/download) and a few free assets (wich I can't include source code sorry)
+Made with [Unity 2021.2](https://unity3d.com/fr/get-unity/download), [Blender](https://www.blender.org/download/), [Audacity](https://www.audacityteam.org/download/)
 
-Some third parties code where used :
+and a few fantastics and free Unity assets :
 
 - Super Character Controller from Aedan Graves : https://assetstore.unity.com/packages/tools/game-toolkits/super-character-controller-135316#content
 - AQUAS Lite from Dogmatic : https://assetstore.unity.com/packages/vfx/shaders/aquas-lite-built-in-render-pipeline-53519
@@ -47,6 +44,10 @@ Some third parties code where used :
 Some helping videos :
 
 - How to create low poly rocks in minute by CG Geek : https://www.youtube.com/watch?v=4EqLyGsu3AA
+https://youtu.be/BtRsCLGsDHI
+
+- Character Creation for Beginners - Stylized Penguin (Blender Tutorial) by Ryan King Art : https://youtu.be/BtRsCLGsDHI 
+(I didn't had time to use the pinguin for the compo deadline, but the pinguin model is the repo)
 
 I'll appreciate to know if you play this game or use the source code
 

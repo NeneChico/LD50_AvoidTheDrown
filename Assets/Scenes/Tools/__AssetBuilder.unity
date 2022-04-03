@@ -636,7 +636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1054962739}
-  enableCameraControl: 1
+  enableCameraControl: 0
   lockAndHideMouse: 1
   autoGenerateCrosshair: 0
   showCrosshairIn3rdPerson: 0
@@ -1595,7 +1595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 516105743}
-  enableCameraControl: 1
+  enableCameraControl: 0
   lockAndHideMouse: 1
   autoGenerateCrosshair: 0
   showCrosshairIn3rdPerson: 0
