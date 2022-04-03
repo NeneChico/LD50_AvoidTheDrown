@@ -215,6 +215,7 @@ GameObject:
   - component: {fileID: 141123217}
   - component: {fileID: 141123216}
   - component: {fileID: 141123215}
+  - component: {fileID: 141123218}
   m_Layer: 0
   m_Name: TopLeftCube
   m_TagString: Untagged
@@ -230,7 +231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141123213}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: -3, z: 50}
+  m_LocalPosition: {x: -25, y: -3, z: 25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -300,6 +301,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141123213}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &141123218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141123213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb7c65e664b0644efbf37caa04061c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followedObject: {fileID: 1526026982}
+  useOffset: 1
 --- !u!1 &155800910
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +503,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entropy: 0
+  FloatAmplitude: 0
+  FloatSpeed: 0
+  DivingScaleSize: 5
+  PlayerTag: Player
+  speed: 0.25
 --- !u!1 &430258062
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,16 +816,10 @@ MonoBehaviour:
   FirstCorner: {fileID: 141123214}
   LastCorner: {fileID: 1761333482}
   MaxTimeBetweenSpawn: 6
-  MinTimeBetweenSpawn: 4
+  MinTimeBetweenSpawn: 3
   MaxSpawnQuantity: 2
   MinSpawnQuantity: 1
-  OnSpawnEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnSpawnedDamageableAIDestroyEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  MaxSpawned: 5
+  MaxSpawned: 30
   DrawSpawnCubeDiagonal: 0
   spawnedObjectsParent: {fileID: 755525857}
   spawnablePrefabs:
@@ -1000,7 +1014,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 10, z: -10}
+  m_LocalPosition: {x: 0, y: 10, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1770,7 +1784,7 @@ MonoBehaviour:
   jumpEnhancements: 1
   Jumped: 0
   jumpKey: 1
-  jumpPower: 70
+  jumpPower: 40
   airControlFactor: 0.5
   decentMultiplier: 3
   tapJumpMultiplier: 2
@@ -1991,6 +2005,7 @@ GameObject:
   - component: {fileID: 1761333485}
   - component: {fileID: 1761333484}
   - component: {fileID: 1761333483}
+  - component: {fileID: 1761333486}
   m_Layer: 0
   m_Name: BottomRightCube
   m_TagString: Untagged
@@ -2006,7 +2021,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761333481}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 50, y: -3, z: -50}
+  m_LocalPosition: {x: 25, y: -3, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2076,6 +2091,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761333481}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1761333486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761333481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb7c65e664b0644efbf37caa04061c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followedObject: {fileID: 1761333481}
+  useOffset: 0
 --- !u!1 &1775660035
 GameObject:
   m_ObjectHideFlags: 0

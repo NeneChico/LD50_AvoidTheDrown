@@ -32,12 +32,6 @@ namespace NeneChico
 
         protected long spawnCount = 0;
 
-        [Tooltip("Unity Event called when an object is spawned")]
-        public UnityEvent OnSpawnEvent;
-
-        [Tooltip("Unity Event called if the spawned object is a DamageableAI and is destroyed")]
-        public UnityEvent OnSpawnedDamageableAIDestroyEvent;
-
         [Tooltip("Maximum of spawn objects (0 for unlimited)")]
         [Range(0, 9999)]
         public int MaxSpawned = 0;
@@ -59,6 +53,7 @@ namespace NeneChico
             DestroyAllSpawned();
         }
 
+
         void Update()
         {
             timer -= Time.deltaTime;
@@ -76,7 +71,7 @@ namespace NeneChico
 
         public int GetAliveSpawneds()
         {
-            aliveSpawneds.RemoveAll(item => item == null);
+            aliveSpawneds.RemoveAll(item => item == null || !item.activeSelf);
             return aliveSpawneds.Count;
         }
 
@@ -86,12 +81,6 @@ namespace NeneChico
         {
             aliveSpawneds.RemoveAll(item => item == null);
             aliveSpawneds.ForEach(o => Object.Destroy(o));
-        }
-
-        /// returns the total networked spawned prefab locally (not the total count in the game)
-        public long GetLocalSpawnCount()
-        {
-            return spawnCount;
         }
 
         protected void OnDrawGizmos()

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class IcefiedManager : MonoBehaviour
 {
-
     [SerializeField]
     protected float entropy = 0.1f;
 
@@ -19,7 +18,7 @@ public class IcefiedManager : MonoBehaviour
 
     // emerging management
     protected Vector3 emergeVelocity = Vector3.zero;
-    protected float emergeSpeedSeconds = 1f;
+    protected float emergeTime = 1f;
 
     // floating management
     protected float tempFloatVal;
@@ -27,7 +26,19 @@ public class IcefiedManager : MonoBehaviour
 
     // diving management
     protected Vector3 diveVelocity = Vector3.zero;
-    protected float diveSpeedSeconds = 0.5f;
+    protected float diveTime = 0.5f;
+
+    // moving to playermanagement
+    protected Vector3 targetPosition = Vector3.zero;
+    protected Vector3 targetVelocity = Vector3.zero;
+    protected bool targetReached = false;
+
+    [SerializeField]
+    protected string PlayerTag = "Player";
+
+    [SerializeField][Range(0.1f,1f)]
+    protected float speed = 0.25f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +53,10 @@ public class IcefiedManager : MonoBehaviour
         // prepare floating movement
         tempFloatVal = transform.position.y;
 
+        // prepare to move to player position at start time
+        Vector3 playerPosition = GameObject.FindGameObjectWithTag(PlayerTag).transform.position;
+        targetPosition = new Vector3(playerPosition.x, 0, playerPosition.z);
+
         // TODO: start food spawner
         // TODO: start enemy spawner
 
@@ -53,28 +68,50 @@ public class IcefiedManager : MonoBehaviour
         // dive ?
         if (gameObject.transform.localScale.x <= DivingScaleSize)
         {
-            Debug.Log($"Diving {gameObject}");
-            Vector3 targetPosition = new Vector3(gameObject.transform.position.x, -3, gameObject.transform.position.z);
-            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref diveVelocity, diveSpeedSeconds);
+            //Debug.Log($"Diving {gameObject.name}");
+            Vector3 divePosition = new Vector3(gameObject.transform.position.x, -3, gameObject.transform.position.z);
+            transform.position = Vector3.SmoothDamp(transform.position, divePosition, ref diveVelocity, diveTime);
+            
+            /*FIXME
+            if(transform.position == divePosition) // desactivate object for spawners
+                gameObject.SetActive(false);
+            */
         }
         else
         {
             // emerge
             if (transform.position.y < 0)
             {
-                Debug.Log($"Emerging {gameObject}");
-                Vector3 targetPosition = new Vector3(gameObject.transform.position.x, 0, gameObject.transform.position.z);
-                transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref emergeVelocity, emergeSpeedSeconds);
+                //Debug.Log($"Emerging {gameObject.name}");
+                Vector3 emergePosition = new Vector3(gameObject.transform.position.x, 0, gameObject.transform.position.z);
+                transform.position = Vector3.SmoothDamp(transform.position, emergePosition, ref emergeVelocity, emergeTime);
             }
             else
             {
+                // move to player direction
+                if (!targetReached)
+                {
+                    Debug.Log($"Moving {gameObject.name} to player");
+                    Vector3 playePosition = new Vector3(gameObject.transform.position.x, 0, gameObject.transform.position.z);
+                    transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref targetVelocity, 1 / speed);
+                }
+
                 // TODO: tilt from player weight
-                // TODO: move to player direction
 
                 // floating movement
                 tempPos.y = tempFloatVal + FloatAmplitude * Mathf.Sin(FloatSpeed * Time.time);
                 transform.position = tempPos;
             }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Debug.Log("Collision enter:" + collision);
+        if (collision.gameObject.CompareTag(PlayerTag))
+        {
+            Debug.Log($"Emerging {gameObject.name} player reached");
+            targetReached = true;
         }
     }
 }

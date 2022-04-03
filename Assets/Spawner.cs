@@ -38,7 +38,6 @@ namespace NeneChico
                 {
                     aliveSpawneds.Add(instance);
                     spawnCount++;
-                    OnSpawnEvent.Invoke();
                 }
                 else
                 {
