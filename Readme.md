@@ -7,7 +7,7 @@ with the "avoid inevitable" theme and the "compo" rules constraints.
 
 As a pinguin (who don't how to swim!) in a melting icefield, you have to survive.
 
-Use WSAD keys to move and the spacebar to jumpµ.
+Use WSAD keys to move and the spacebar to jump.
 
 On standalone build:
 - Escape key to Quit
