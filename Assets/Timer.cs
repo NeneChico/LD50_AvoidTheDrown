@@ -39,7 +39,7 @@ public class Timer : MonoBehaviour
 
     public void Start()
     {
-        StartTimer();
+        //StartTimer();
     }
 
     public void StartTimer() // called after OnEnable at scene start
@@ -47,7 +47,7 @@ public class Timer : MonoBehaviour
         if(Duration > 0)
             countDown = true;
         TimeCount = Duration;
-        State = TimerState.Stopped;
+        State = TimerState.Started;
     }
 
     void OnDisable()
@@ -68,7 +68,7 @@ public class Timer : MonoBehaviour
 
     public void ResumeTimer()
     {
-        State = TimerState.Stopped;
+        State = TimerState.Started;
     }
 
     public void Update()
