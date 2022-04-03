@@ -6,7 +6,20 @@ public class IcefiedManager : MonoBehaviour
 {
 
     [SerializeField]
-    protected float entropy = 0.1f;
+    protected float sizeEntropy = 0.1f;
+
+    [SerializeField]
+    protected float resizeEntropy = 0.1f;
+
+    [SerializeField]
+    protected float FloatAmplitude;
+
+    [SerializeField]
+    protected float FloatSpeed;
+    
+    protected float tempFloatVal;
+
+    protected Vector3 tempPos;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +31,8 @@ public class IcefiedManager : MonoBehaviour
         Resizer resizer = gameObject.GetComponentInChildren<Resizer>();
         resizer.ResizedObject = this.gameObject;
 
-        // TODO: start tangle
+        // prepare floating movement
+        tempFloatVal = transform.position.y;
 
         // TODO: start food spawner
         // TODO: start enemy spawner
@@ -28,13 +42,16 @@ public class IcefiedManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // TODO: tangle from wave
-        // TODO: tangle from player
-        // TODO: move
+        // TODO: tilt from player weight
+        // TODO: move to player direction
 
         if(gameObject.transform.localScale.x <= 0.01f)
         {
             Destroy(gameObject);
         }
+
+        // floating movement
+        tempPos.y = tempFloatVal + FloatAmplitude * Mathf.Sin(FloatSpeed * Time.time);
+        transform.position = tempPos;
     }
 }
