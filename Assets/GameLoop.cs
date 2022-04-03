@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Collections;
+
 
 /// <summary>
 /// Manage Game life cycle : menu/start/gameover 
@@ -78,7 +78,22 @@ public class GameLoop : MonoBehaviour
             {
                 RestartGame();
             }
+
         }
+
+#if UNITY_STANDALONE
+        if (Input.GetKey(KeyCode.Escape))
+            Application.Quit();
+#endif
+
+        if (Input.GetKey(KeyCode.P))
+        {
+            string screenshotFileName = $"{Application.companyName}-{Application.productName}-{Application.version}";
+            screenshotFileName += "_" + System.DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".png";
+            ScreenCapture.CaptureScreenshot(screenshotFileName);
+        }
+
+
     }
 
     private void RestartGame()
