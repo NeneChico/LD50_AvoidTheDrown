@@ -388,6 +388,7 @@ GameObject:
   - component: {fileID: 270594872}
   - component: {fileID: 270594871}
   - component: {fileID: 270594870}
+  - component: {fileID: 270594874}
   m_Layer: 0
   m_Name: FirstIcefield
   m_TagString: Untagged
@@ -474,6 +475,19 @@ Transform:
   m_Father: {fileID: 755525858}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &270594874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270594868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb12b2a6933a24f18a5d89eed750d4e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entropy: 0
 --- !u!1 &430258062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,6 +1172,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterPlane
       objectReference: {fileID: 0}
+    - target: {fileID: 134676, guid: 6488b6e6bbe8a9c4585b531a71d8211c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 440718, guid: 6488b6e6bbe8a9c4585b531a71d8211c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1359,12 +1377,12 @@ MonoBehaviour:
   PlayerStartHealth: 100
   PlayerRestartLocation: {fileID: 1757507691}
   GameObjects:
-  - {fileID: 2104336997}
   - {fileID: 715090080}
   - {fileID: 982709946}
   Timer: {fileID: 2104336999}
   PlayerWinScore: 100
   EndGameWhenWinScoreReached: 1
+  startIceField: {fileID: 270594868}
 --- !u!1 &1526026982
 GameObject:
   m_ObjectHideFlags: 0
@@ -2068,7 +2086,6 @@ GameObject:
   - component: {fileID: 1775660036}
   - component: {fileID: 1775660039}
   - component: {fileID: 1775660038}
-  - component: {fileID: 1775660040}
   m_Layer: 5
   m_Name: TimerText
   m_TagString: Untagged
@@ -2129,7 +2146,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00
+  m_Text: 
 --- !u!222 &1775660039
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2138,20 +2155,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775660035}
   m_CullTransparentMesh: 0
---- !u!114 &1775660040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1775660035}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ead71e68fa35faf4e99d2cd49f7a8e7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TimerText: {fileID: 1775660038}
-  Timer: {fileID: 2104336999}
 --- !u!1 &2026363294
 GameObject:
   m_ObjectHideFlags: 0
@@ -2180,7 +2183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026363294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2195,7 +2198,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026363294}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -2402,7 +2405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0cfe1b2a7c9c49a9ac768ca3a617099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 60
+  Duration: 0
   TimerText: {fileID: 1775660038}
   OnTimeOut:
     m_PersistentCalls:

@@ -38,6 +38,9 @@ public class GameLoop : MonoBehaviour
     // Player current score
     public int PlayerCurrentScore { get; protected set; } = 0;
 
+    // Player first icefiemd
+    public GameObject startIceField;
+
     public enum GameState
     {
         Menu,
@@ -85,14 +88,19 @@ public class GameLoop : MonoBehaviour
         playerDamageable.Health = PlayerStartHealth;
         Player.transform.position = PlayerRestartLocation.position;
         Player.transform.rotation = PlayerRestartLocation.rotation;
-
         PlayerCurrentScore = 0;
-
-        GameObjects.ForEach(go => go.SetActive(true));
+        //activated in next line: Player.SetActive(true);
+        GameObjects.ForEach(go => go.SetActive(true)); 
 
         DisplayMessage("");
 
+
         Timer.RestartTimer();
+
+        Resizer startRs = startIceField.GetComponentInChildren<Resizer>();
+        startRs.enabled = true;
+        startRs.ResetSize();
+       
     }
 
     public void Gameover()
@@ -113,11 +121,10 @@ public class GameLoop : MonoBehaviour
             else
             {
                 // Player died
-                float timePassed = Timer.Duration - Timer.TimeCount;
-                DisplayMessage($"Game Over\nDied in {timePassed:0}s");
+                DisplayMessage($"Game Over\nDied in {Timer.TimeCount:0} seconds");
             }
         }
-        StartCoroutine(LaunchMenuInSeconds(5));
+        //StartCoroutine(LaunchMenuInSeconds(2));
     }
 
     public void AddPlayerScore(int value)

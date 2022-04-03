@@ -12,12 +12,12 @@ public class ColliderEventSender : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision enter");
+        //Debug.Log("Collision enter:" + collision);
         if (collision.gameObject.CompareTag(CollideTag))
         {
             if (onCollisionEnterEvent != null)
             {
-                Debug.Log("Invoke collision event");
+                //Debug.Log("Invoke collision event for " + collision.gameObject);
                 onCollisionEnterEvent.Invoke();
             }
         }
