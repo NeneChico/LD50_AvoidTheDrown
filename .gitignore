@@ -5,7 +5,7 @@
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
-/[Bb]uild/
+/[Bb]uild*/
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
@@ -157,3 +157,6 @@ Assets/Published/SUPER Character Controller/
 Assets/_TerrainAutoUpgrade.meta
 Assets/Published.meta
 Assets/Published/SUPER Character Controller.meta
+
+# http://dotween.demigiant.com/getstarted.php
+Assets/DOTween Examples/
