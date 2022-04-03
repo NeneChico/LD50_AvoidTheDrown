@@ -14,6 +14,12 @@ On standalone build:
 - Escape key to Quit
 - P key to make a screenshot (pgn file generated on your "Avoid Inevitable_Data" folder from the game binary directory)
 
+# Screenshots
+
+## Screenshots of v0.1 Windows
+![Screenshot](img/screenshot_0.1_start.png?raw=true "Start")
+![Screenshot](img/screenshot_0.1_gameover.png?raw=true "Gameover")
+
 # Known issues
 
 - Character controls altered after playing a while for an unknown reason
