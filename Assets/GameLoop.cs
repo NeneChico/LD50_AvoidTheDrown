@@ -16,6 +16,8 @@ public class GameLoop : MonoBehaviour
 
     public Text PlayerScoreText;
 
+    protected const string PLAYPREFS_HIGHSCORE_KEY = "HighScore";
+
     public GameObject Player;
 
     public float PlayerStartHealth;
@@ -55,8 +57,8 @@ public class GameLoop : MonoBehaviour
         Gameover
     }
     public GameState State { get; protected set; } = GameState.Menu;
-    protected Damageable playerDamageable;
 
+    protected Damageable playerDamageable;
 
     public void Start()
     {
@@ -69,8 +71,10 @@ public class GameLoop : MonoBehaviour
     {
         if (State == GameState.Playing)
         {
+            /* used for High Score
             if (PlayerScoreText)
                 PlayerScoreText.text = $"Score: {PlayerCurrentScore:0}";
+            */
 
             if ((playerDamageable.Health <= 0) || (EndGameWhenWinScoreReached && PlayerWin()))
             {
@@ -117,6 +121,9 @@ public class GameLoop : MonoBehaviour
 
         DisplayMessage("");
 
+        // Play score used for high score
+        if (PlayerScoreText)
+            PlayerScoreText.text = $"High Score: {PlayerPrefs.GetInt("HighScore", 0):0}";
 
         Timer.RestartTimer();
 
@@ -156,6 +163,15 @@ public class GameLoop : MonoBehaviour
 
             }
         }
+
+        // manage high score
+        PlayerCurrentScore = Mathf.FloorToInt(Timer.TimeCount);
+        if (PlayerCurrentScore > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt(PLAYPREFS_HIGHSCORE_KEY, PlayerCurrentScore);
+            PlayerPrefs.Save();
+        }
+
         //StartCoroutine(LaunchMenuInSeconds(2));
     }
 

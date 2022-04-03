@@ -1382,7 +1382,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1150662018}
   - component: {fileID: 1150662024}
-  - component: {fileID: 1150662020}
   - component: {fileID: 1150662019}
   m_Layer: 5
   m_Name: Canvas
@@ -1423,7 +1422,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150662017}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7925e5d6a0012473ea10f3c118b4d310, type: 3}
   m_Name: 
@@ -1431,20 +1430,6 @@ MonoBehaviour:
   Damageable: {fileID: 1526026991}
   HealthText: {fileID: 0}
   HealthSlider: {fileID: 430258064}
---- !u!114 &1150662020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1150662017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5125538da9b014bb8bc7efe2e5057ac0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScoreText: {fileID: 2085960249}
-  GameLoop: {fileID: 1511369478}
 --- !u!223 &1150662024
 Canvas:
   m_ObjectHideFlags: 0
@@ -6617,6 +6602,7 @@ GameObject:
   - component: {fileID: 1526026991}
   - component: {fileID: 1526026993}
   - component: {fileID: 1526026992}
+  - component: {fileID: 1526026994}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6826,14 +6812,14 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526026982}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ed41ea3355eed2c40947f34d4e18a304, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6954,8 +6940,8 @@ MonoBehaviour:
   bodyCatchupSpeed: 1.75
   inputResponseFiltering: 0.1
   enableMovementControl: 1
-  walkingSpeed: 250
-  sprintingSpeed: 400
+  walkingSpeed: 300
+  sprintingSpeed: 401
   crouchingSpeed: 1
   decelerationSpeed: 240
   sprintKey: 51
@@ -6986,7 +6972,7 @@ MonoBehaviour:
   jumpEnhancements: 1
   Jumped: 0
   jumpKey: 1
-  jumpPower: 50
+  jumpPower: 60
   airControlFactor: 0.5
   decentMultiplier: 3
   tapJumpMultiplier: 2
@@ -7076,6 +7062,19 @@ MonoBehaviour:
   enableMovementDebugging: 0
   enableMouseAndCameraDebugging: 0
   enableVaultDebugging: 0
+--- !u!65 &1526026994
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526026982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1545097938
 GameObject:
   m_ObjectHideFlags: 0
@@ -7538,7 +7537,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0000000
+  m_Text: 'High Score: 0'
 --- !u!222 &2085960250
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -92,7 +92,7 @@ public class IcefiedManager : MonoBehaviour
                 // move to player direction
                 if (!targetReached)
                 {
-                    Debug.Log($"Moving {gameObject.name} to player");
+                    //Debug.Log($"Moving {gameObject.name} to player");
                     Vector3 playePosition = new Vector3(gameObject.transform.position.x, 0, gameObject.transform.position.z);
                     transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref targetVelocity, 1 / speed);
                 }
@@ -111,7 +111,7 @@ public class IcefiedManager : MonoBehaviour
         //Debug.Log("Collision enter:" + collision);
         if (collision.gameObject.CompareTag(PlayerTag))
         {
-            Debug.Log($"Emerging {gameObject.name} player reached");
+            //Debug.Log($"Emerging {gameObject.name} player reached");
             targetReached = true;
         }
     }
