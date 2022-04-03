@@ -11,7 +11,7 @@ Use WSAD keys to move and the spacebar to jumpµ.
 
 On standalone build:
 - Escape key to Quit
-- P key to make a screenshot (pgn file generated on your "Avoid the Drown_Data" folder from this game binary directory)
+- P key to make a screenshot (png file generated on "Avoid the Drown_Data" folder from this game binary directory)
 
 # Screenshots
 
