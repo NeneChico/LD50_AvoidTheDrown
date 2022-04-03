@@ -5,9 +5,9 @@ with the "avoid inevitable" theme and the "compo" rules constraints.
 
 # Instructions to play
 
-As a pinguin (who don't how to swim!) is in a melting icefield, help him survive.
+As a pinguin (who don't how to swim!) in a melting icefield, you have to survive.
 
-Use WSAD keys to move and the spacebar to jump
+Use WSAD keys to move and the spacebar to jumpµ.
 
 On standalone build:
 - Escape key to Quit
