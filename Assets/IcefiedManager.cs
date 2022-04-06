@@ -73,10 +73,10 @@ public class IcefiedManager : MonoBehaviour
             Vector3 divePosition = new Vector3(gameObject.transform.position.x, -3, gameObject.transform.position.z);
             transform.position = Vector3.SmoothDamp(transform.position, divePosition, ref diveVelocity, diveTime);
             
-            /*FIXME
-            if(transform.position == divePosition) // desactivate object for spawners
+            
+            if((transform.position == divePosition) && !gameObject.CompareTag("Respawn")) // desactivate object for spawners but 1rst respawn platform
                 gameObject.SetActive(false);
-            */
+           
         }
         else
         {

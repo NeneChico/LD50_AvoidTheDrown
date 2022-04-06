@@ -231,7 +231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141123213}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25, y: -3, z: 25}
+  m_LocalPosition: {x: -30, y: -3, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 270594874}
   m_Layer: 0
   m_Name: FirstIcefield
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -954,6 +954,7 @@ MonoBehaviour:
   - {fileID: 8426925736293131263, guid: 3b8d5d904d850ac43be27113dc77f198, type: 3}
   - {fileID: 3749439537730411389, guid: 15060a4b23ca2fa4198528258aef57a7, type: 3}
   - {fileID: 792009020442304609, guid: d22e4ede238363e4ea95839b068202a1, type: 3}
+  - {fileID: 792009020442304609, guid: e466bf0609b170048a246e8ad8a47db5, type: 3}
 --- !u!1 &755525857
 GameObject:
   m_ObjectHideFlags: 0
@@ -6969,11 +6970,11 @@ MonoBehaviour:
   stepUpSpeed: 0.2
   canJump: 1
   holdJump: 0
-  jumpEnhancements: 1
+  jumpEnhancements: 0
   Jumped: 0
   jumpKey: 1
-  jumpPower: 60
-  airControlFactor: 0.5
+  jumpPower: 50
+  airControlFactor: 0.2
   decentMultiplier: 3
   tapJumpMultiplier: 2
   isSliding: 0
@@ -7020,7 +7021,7 @@ MonoBehaviour:
     _Layers: []
     footstepClips:
     - {fileID: 8300000, guid: bac1d9a6ae157134eb24dc720f757dce, type: 3}
-  enableHeadbob: 0
+  enableHeadbob: 1
   headbobSpeed: 2
   headbobPower: 2
   ZTilt: 0.5
@@ -7176,7 +7177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761333481}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25, y: -3, z: -25}
+  m_LocalPosition: {x: 30, y: -3, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7368,7 +7369,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026363294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalPosition: {x: 0, y: -4.5, z: 0}
   m_LocalScale: {x: 450, y: 1, z: 450}
   m_ConstrainProportionsScale: 0
   m_Children: []
